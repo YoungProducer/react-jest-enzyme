@@ -1,0 +1,39 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+handlers:
+  - url: /static/js/(.*)
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/static/js/\1
+    upload: build/static/js/(.*)
+  - url: /static/css/(.*)
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/static/css/\1
+    upload: build/static/css/(.*)
+  - url: /static/media/(.*)
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/static/media/\1
+    upload: build/static/media/(.*)
+  - url: /node_modules/(.*)
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/node_modules/\1
+    upload: build/node_modules/(.*)
+  - url: /(.*\.(json|ico|worker\.js|worker\.js\.map|mp4))$
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/\1
+    upload: build/.*\.(json|ico|worker\.js|worker\.js\.map|mp4)$
+  - url: /
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/index.html
+    upload: build/index.html
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
+    static_files: build/index.html
+    upload: build/index.html

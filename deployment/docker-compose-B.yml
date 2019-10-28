@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  infertrade-frontend-uat:
+    image: eu.gcr.io/analog-antler-216014/infertrade-frontend:${TAG:-latest}
+    ports:
+      - "81:80"
+    build:
+      context: ..
+      args:
+      - REACT_APP_API_URL
+      - PORT
+    restart: always
