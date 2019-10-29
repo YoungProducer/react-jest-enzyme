@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hint /> is matches snapshot 1`] = `
+<div>
+  <h1
+    data-test="title-hover"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    Title
+  </h1>
+</div>
+`;
