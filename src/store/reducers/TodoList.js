@@ -19,19 +19,14 @@ const HANDLERS = {
 		} 
 	}) => {
 		const { todos } = state;
-		// todos.push({
-		// 	id: todos[todos.length - 1].id + 1,
-		// 	title,
-		// 	desc
-		// });
-		console.log(todos)
 		return {
 			...state,
 			todos: todos.concat([{
 				id: todos[todos.length - 1].id + 1,
 				title,
-				desc}])
-		}
+				desc
+			}])
+		};
 	},
 	[TodoListActions.DELETE_TODO]: (
 		state,
