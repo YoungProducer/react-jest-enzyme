@@ -11,14 +11,35 @@ const INITIAL_STATE = {
 };
 
 const HANDLERS = {
-	[TodoListActions.ADD_TODO]: (state, { payload: { title, desc } }) => ({
+	[TodoListActions.ADD_TODO]: (
+		state,
+		{ payload: { 
+			title, 
+			desc 
+		} 
+	}) => {
+		const { todos } = state;
+		// todos.push({
+		// 	id: todos[todos.length - 1].id + 1,
+		// 	title,
+		// 	desc
+		// });
+		console.log(todos)
+		return {
+			...state,
+			todos: todos.concat([{
+				id: todos[todos.length - 1].id + 1,
+				title,
+				desc}])
+		}
+	},
+	[TodoListActions.DELETE_TODO]: (
+		state,
+		{ payload: { id } 
+	}) => ({
 		...state,
-		todos: Object.assign(todos, {
-			id: todos[todos.length - 1].id + 1,
-			title,
-			desc,
-		}),
-	}),
+		todos: state.todos.filter(todo => todo.id !== id)
+	})
 };
 
 export default (state = INITIAL_STATE, action) =>

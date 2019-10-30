@@ -1,9 +1,4 @@
-import { connect } from 'react-redux';
+import container from './container';
+import Component from './Component';
 
-import { putStateToProps } from './container';
-import TodoList from './Component';
-
-export default connect(
-	putStateToProps,
-	null
-)(TodoList);
+export default container(Component);

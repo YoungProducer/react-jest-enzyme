@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import { createDeleteTodo } from 'store/actionCreators/TodoList';
+import { createAddTodo } from 'store/actionCreators/TodoList';
 
 const putDispatchToProps = dispatch => ({
-    deleteTodo: id =>
-        dispatch(createDeleteTodo(id))
+    addTodo: ({title, desc}) => 
+        dispatch(createAddTodo({title, desc}))
 });
 
 export default Component => 

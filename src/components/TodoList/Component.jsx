@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import TodoItem from './TodoItem/Component';
+import TodoItem from './TodoItem';
+import TodoWriter from './TodoWriter';
 
 const TodoList = ({ todos }) => {
-	return todos.map(todo => (
-		<TodoItem title={todo.title} desc={todo.desc} key={todo.id} />
-	));
+	return (
+		<>
+			<TodoWriter />
+			{
+				todos.map(todo => (
+					<TodoItem {...todo} key={todo.id} />
+				))
+			}
+		</>
+	)
 };
 
 TodoList.propTypes = {
