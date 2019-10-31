@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import TodoItem from './TodoItem';
@@ -8,13 +8,11 @@ const TodoList = ({ todos }) => {
 	return (
 		<>
 			<TodoWriter />
-			{
-				todos.map(todo => (
-					<TodoItem {...todo} key={todo.id} />
-				))
-			}
+			{todos.map(todo => (
+				<TodoItem {...todo} key={todo.id} />
+			))}
 		</>
-	)
+	);
 };
 
 TodoList.propTypes = {

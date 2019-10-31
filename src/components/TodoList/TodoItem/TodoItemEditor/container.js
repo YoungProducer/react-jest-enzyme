@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
 import {
-	createDeleteTodo,
+	createApplyChanges,
 	createToggleEditorById,
 } from 'store/actionCreators/TodoList';
 
 const putDispatchToProps = dispatch => ({
-	deleteTodo: id => dispatch(createDeleteTodo(id)),
-	toggleEditorById: id => dispatch(createToggleEditorById(id)),
+	applyChanges: ({ id, title, desc }) =>
+		dispatch(createApplyChanges({ id, title, desc })),
+	toggleEditorById: ({ id }) => dispatch(createToggleEditorById({ id })),
 });
 
 export default Component =>
